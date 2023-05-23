@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user
     else
+      flash[:error] = @user.errors.full_messages.join(", ")
       render 'new'
     end
   end
@@ -24,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
