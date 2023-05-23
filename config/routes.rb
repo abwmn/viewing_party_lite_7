@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+  get '/login', to: 'users#login_form'
+  post '/login', to: 'users#login'
 
   resources :users, only: [:new, :create, :show] do
     member do
