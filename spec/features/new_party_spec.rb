@@ -48,7 +48,6 @@ RSpec.describe 'New Movie Party Page' do
 
     fill_in 'Duration of Party (in minutes)', with: "#{@movie.runtime - 1}" 
     click_button 'Create Party'
-
     expect(page).to have_content('Error')
     expect(page).to have_content('Duration cannot be less')
   end
@@ -58,7 +57,6 @@ RSpec.describe 'New Movie Party Page' do
 
     fill_in 'Duration of Party (in minutes)', with: "#{@movie.runtime - 1}" 
     click_button 'Create Party'
-
     expect(page).to have_content('Error')
     expect(page).to have_content('Duration cannot be less')
   end
