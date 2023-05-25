@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   root "home#index"
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
+  get '/logout', to: 'users#logout'
+  get '/dashboard', to: 'users#show'
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create] do
     member do
       get 'discover'
       resources :movies, only: [:index, :show] do

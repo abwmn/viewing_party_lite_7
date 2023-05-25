@@ -7,7 +7,7 @@
   <% @parties.each do |party| %>
     <div class="party">
       <%= image_tag party.image_url, alt: party.title, width: '185' %>
-      <%= link_to party.title, movie_path(user_id: @user.id, movie_id: party.movie_id) %>
+      <%= link_to party.title, movie_path(party.movie_id) %>
       <p><%= party.datetime.strftime('%Y-%m-%d %H:%M') %></p>
       <% if party.host?(@user) %>
         <p>Hosting</p>
