@@ -13,8 +13,8 @@
   <body>
     <%= link_to "Home", root_path %>
     <h1>Viewing Party</h1>
-    <% flash.each do |name, msg| %>
-     <%= content_tag :div, msg, class: name %>
+    <% flash.each do |_, msg| %>
+     <%= msg %><br><br>
     <% end %>
     <%= yield %>
   </body>

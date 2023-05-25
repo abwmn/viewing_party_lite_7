@@ -11,7 +11,7 @@ class PartiesController < ApplicationController
 
     if @party.save
       Partygoing.create(user_id: @party.user_id, party_id: @party.id)
-      redirect_to user_path(@party.user_id)
+      redirect_to dashboard_path
     else
       @host = User.find(params[:party][:user_id]) 
       @movie = MovieFacade.new(params[:movie_id])

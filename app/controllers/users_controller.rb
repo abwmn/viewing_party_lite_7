@@ -26,13 +26,23 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "Sorry, your credentials are bad."
-      render :login_form
+      redirect_to login_path
     end
   end
 
+  def logout
+    session.clear
+    redirect_to root_path
+  end
+  
   def show
-    @user = User.find(params[:id])
-    @parties = @user.partygoings.map(&:party)
+    if current_user
+      @user = current_user
+      @parties = @user.partygoings.map(&:party)
+    else
+      flash[:error] = "You must be logged in to access your dashboard"
+      redirect_to root_path
+    end
   end
 
   def discover
